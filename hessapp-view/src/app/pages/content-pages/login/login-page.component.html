@@ -1,0 +1,52 @@
+<!--Login Page Starts-->
+<section id="login">
+    <div class="container-fluid">
+        <div class="row full-height-vh">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <div class="card card-inverse gradient-indigo-purple text-center width-400 main-card">
+                    <div class="card-body">
+                        <div class="card-block">
+                                <img alt="element 06" class="mb-1" src="assets/img/kassaa.png" width="75">
+                            <h2>HESSAPP</h2>
+                            <form novalidate="" (ngSubmit)="onSubmit()" #f="ngForm">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="email" class="form-control" name="email"  placeholder="Email" ngModel required email>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="password" class="form-control" name="password"  placeholder="Şifre" ngModel required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-secondary btn-block ">
+                                          <img *ngIf='loading' src="../../../../assets/loading.gif" height="23" width="23">
+                                          <span *ngIf='!loading'>GİRİŞ YAP</span>
+                                        </button>
+                                        <button type="button" (click)="connectFace()" class="btn btn-facebook btn-block btn-raised ">
+                                          <img *ngIf='fbloading' src="../../../../assets/loading.gif" height="23" width="23">
+                                          <span *ngIf='!fbloading'><i class="fa fa-facebook"></i> Facebook ile Bağlan</span>
+                                        </button>
+                                      <button type="button" (click)="connectGoogle()" class="btn btn-google btn-block btn-raised">
+                                        <img *ngIf='googleLoading' src="../../../../assets/loading.gif" height="23" width="23">
+                                        <span *ngIf='!googleLoading'><i class="fa fa-google"></i> Google ile Bağlan</span>
+                                      </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="float-left"><a routerLink="/pages/forgotpassword">Şifremi Unuttum</a></div>
+                        <div class="float-right"><a routerLink="/pages/register" >Kayıt Ol</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Login Page Ends-->

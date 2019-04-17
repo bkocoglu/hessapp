@@ -1,0 +1,45 @@
+<!--Login Page Starts-->
+<section id="login">
+  <div class="container-fluid">
+    <div class="row full-height-vh">
+      <div class="col-12 d-flex align-items-center justify-content-center">
+        <div class="card card-inverse gradient-indigo-purple text-center width-400 main-card">
+          <div class="card-body">
+            <div class="card-block">
+              <img alt="element 06" class="mb-1" src="assets/img/kassaa.png" width="75">
+              <h2>Üyelik Onayı</h2>
+              <div *ngIf="result == null">
+                <img src="../../../../assets/loading.gif" width="50" height="50">
+              </div>
+              <div *ngIf="result == false">
+                <p>Üzgünüz !</p>
+                <p>{{errorMessage}}</p>
+              </div>
+              <div *ngIf="result == true">
+                <p>Tebrikler !</p>
+                <p>Üyeliğiniz başarılı bir şekilde aktifleştirildi.</p>
+                <p>
+                  Artık kullanıcı adı ve şifrenizle giriş yapabilir, sistemde arkadaşlarınızı bulup gruplar oluşturabilir ve
+                  sistemi özgürce kullanabilirsiniz.
+                </p>
+                <p>
+                  Daha güvenli bir şekilde giriş yapmak isterseniz profil kısmından gizlilik ayarlarınızı düzenleyebilirsiniz.
+                </p>
+                <p>Bizi tercih ettiğiniz için teşekkür ederiz.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button routerLink="/pages/login" type="button" class="btn btn-secondary btn-block ">
+              <span>GİRİŞ YAP</span>
+            </button>
+          </div>
+          <div class="card-footer">
+            <div class="float-left">Hessapp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Login Page Ends-->

@@ -1,0 +1,11 @@
+.border-light {
+  border: 2px solid #cacaca;
+}
+
+.logout{
+  cursor: pointer;
+  transition: opacity 500ms;
+}
+.logout:hover{
+  opacity: 0.5;
+}

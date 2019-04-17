@@ -1,0 +1,37 @@
+localhost database
+
+datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ip?useUnicode=yes&amp;characterEncoding=UTF-8
+    username: root
+    password: Bilal.1212
+
+
+heroku database
+
+    driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306/heroku_0829fa15f4e1ae6?useUnicode=yes&amp;characterEncoding=UTF-8
+        username: bd512280ad1ced
+        password: 6a3b02a4
+
+local default zone
+    eureka:
+      client:
+        fetch-registry: true
+        register-with-eureka: true
+        service-url:
+          defaultZone: http://localhost:8360/eureka/
+      instance:
+        hostname: localhost
+
+
+
+heroku default zone
+   eureka:
+     client:
+       fetch-registry: true
+       register-with-eureka: true
+       service-url:
+         defaultZone: https://hessapp-api-gateway.herokuapp.com/eureka/
+     instance:
+       hostname: login-service.herokuapp.com

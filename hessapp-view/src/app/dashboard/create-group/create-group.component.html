@@ -1,0 +1,101 @@
+<div class="row" matchHeight ="card">
+
+  <div class="col-xl-7 col-lg-12">
+      <div class="card">
+          <div class="card-header">
+              <h4 class="card-title mb-0">GRUP BİLGİLERİ</h4>
+          </div>
+        <form #f="ngForm">
+          <div class="card-body">
+              <div class="card-block text-center">
+                  <input type="text" class="form-control" name="groupName" placeholder="Grup Adı" aria-label="Grup Adı" aria-describedby="basic-addon1" required="" ngModel>
+
+              </div>
+              <div class="card-block text-center">
+                  <textarea style="max-height:100px; min-height:100px;" name="groupDesc" class="form-control ng-pristine" formcontrolname="textArea" id="textArea" placeholder="Grup Açıklaması" rows="3" ngModel></textarea>
+              </div>
+              <div class="card-block text-center">
+                <p style="text-align: center" >
+                  <input type="checkbox" name="isPublic" ngModel> Grubunuzun keşfet bölümünde gösterilsin mi ?
+                </p>
+              </div>
+              <div class="card-block">
+                  <fieldset>
+                      <div class="input-group">
+                        <div class="input-group-prepend" style="padding: 5px 5px; background-color: silver; border-top-left-radius: 5px; border-bottom-left-radius: 5px;">
+                          <span class="input-group-text">@hs-</span>
+                        </div>
+                        <input aria-describedby="button-addon2" class="form-control" placeholder="Kullanıcı Ara" name="nickname" type="text" ngModel>
+                        <div class="input-group-append">
+                          <span class="input-group-btn" id="button-addon2">
+                            <button class="btn btn-raised btn-primary" type="button" (click)="searchUser()"><i class="fa fa-search"></i></button>
+                          </span>
+                        </div>
+                      </div>
+                    </fieldset>
+              </div>
+              <div class="card-block user-block" *ngIf="selectedUser !== null">
+                  <div class="media mb-3 row" style="margin-bottom: 0px !important;">
+                    <div class="col-2">
+                      <img *ngIf="selectedUser.photoUrl == null" src="../../../assets/img/user.png">
+                      <img *ngIf="selectedUser.photoUrl != null" [src]="selectedUser.photoUrl">
+                    </div>
+                    <div class="col-6">
+                      <div class="media-body">
+                        <h4 class="font-medium-1 mt-2 mb-0">
+                          {{selectedUser.name}} {{selectedUser.surname}} - {{selectedUser.birthYear}}
+                          <span *ngIf="selectedUser.gender == 'Bay'" style="float: right;"><img src="../../../assets/img/man.png"></span>
+                          <span *ngIf="selectedUser.gender == 'Bayan'" style="float: right;"><img src="../../../assets/img/woman.png"></span>
+                          <br>
+                          {{selectedUser.mail}}
+                        </h4>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <a class="btn btn-raised gradient-blackberry round btn-primary" style="margin:0px 10px;" (click)="addUser(selectedUser)" title="Gruba Ekle" ><i class="fa fa-check"></i></a>
+                      <a class="btn btn-raised  round" style="margin:0px 10px; background-color: #d32f2f; color: #fff;" (click)="cancelUser()" title="Vazgeç" ><i class="fa fa-times"></i></a>
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </form>
+
+      </div>
+  </div>
+  <div class="col-xl-5 col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title mb-0">GRUP ÜYELERİ</h4>
+        </div>
+        <div class="card-body">
+            <div class="card-block members">
+                <div class="media mb-3 row" *ngFor="let user of selectionList">
+                    <div class="col-2">
+                      <img *ngIf="user.photoUrl == null" src="../../../assets/img/user.png">
+                      <img *ngIf="user.photoUrl != null" [src]="selectedUser.photoUrl">
+                    </div>
+                    <div class="col">
+                      <div class="media-body ">
+                        <h4 class="font-medium-1 mt-2 mb-0">
+                          {{user.name}} {{user.surname}} - {{user.birthYear}}
+                          <span *ngIf="user.gender == 'Bay'" style="float: right;"><img src="../../../assets/img/man.png"></span>
+                          <span *ngIf="user.gender == 'Bayan'" style="float: right;"><img src="../../../assets/img/woman.png"></span>
+                        </h4>
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <a class="btn btn-raised  round" style="margin:0px 10px; background-color: #d32f2f; color: #fff;" (click)="removeUser(user.nicname)" title="Seçimi kaldır" ><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-block">
+          <a *ngIf='!loading' (click)="createGroup()" class="btn btn-raised gradient-blackberry btn-primary btn-block round">GRUBU OLUŞTUR</a>
+          <a *ngIf='loading' class="btn btn-raised gradient-blackberry btn-primary btn-block round">
+            <img src="../../../assets/loading.gif" width="20" height="20">
+          </a>
+          <a routerLink="/dashboard/general-status" style="background-color: #d32f2f; color: #fff;" class="btn btn-raised btn-block round">İPTAL ET</a>
+        </div>
+        </div>
+    </div>
+</div>

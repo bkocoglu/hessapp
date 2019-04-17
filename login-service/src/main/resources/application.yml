@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: login-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306/heroku_0829fa15f4e1ae6?useUnicode=yes&amp;characterEncoding=UTF-8
+    username: bd512280ad1ced
+    password: 6a3b02a4
+    tomcat:
+      max-wait: 20000
+      max-active: 100
+      max-idle: 20
+      min-idle: 15
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        connection:
+          characterEncoding: utf-8
+          CharSet: utf-8
+          useUnicode: true
+    hibernate:
+      use-new-id-generator-mappings: false
+      ddl-auto: update
+      show-sql: true
+server:
+  port: 8361
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8360/eureka/
+  instance:
+    hostname: localhost
+
+
+feign.client.config.default.connectTimeout: 160000000
+feign.client.config.default.readTimeout: 160000000

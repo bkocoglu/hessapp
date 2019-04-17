@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: mail-service
+  mail:
+    host: smtp.gmail.com
+    username: egitim.programming@gmail.com
+    password: Bilal.1212
+    port: 587
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+
+
+server:
+  port: 8362
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8360/eureka/
+  instance:
+    hostname: localhost
+

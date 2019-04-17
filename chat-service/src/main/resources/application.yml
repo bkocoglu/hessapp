@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: chat-service
+  data:
+    mongodb:
+      uri: mongodb://heroku_d4zm9g64:p850td4rgficstk1fcv1iros9n@ds125831.mlab.com:25831/heroku_d4zm9g64
+
+server:
+  port: 8364
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8360/eureka/
+  instance:
+    hostname: localhost

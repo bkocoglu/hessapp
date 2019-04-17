@@ -1,0 +1,28 @@
+.media{
+    padding-bottom: 10px;
+    margin-bottom: 10px !important;
+    border-bottom: 1px solid #e3e3e3;}
+
+    .col-xl-6 .members{
+        overflow: scroll;
+        overflow-x: hidden;
+        height: 290px;
+    }
+    .col-xl-6 .members::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .col-xl-6 .members::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    
+    .col-xl-6 .members::-webkit-scrollbar-thumb {
+        background-color: #573790;
+      border-radius: 8px;
+      transition: background-color 0.5s;
+    }
+    
+    .col-xl-6 .members::-webkit-scrollbar-thumb:hover{
+        background-color: #836186;
+      }
+    

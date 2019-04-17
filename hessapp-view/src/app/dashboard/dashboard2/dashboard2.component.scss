@@ -1,0 +1,28 @@
+@import "../../../assets/sass/scss/gradient-variables";
+
+:host /deep/ .ct-grid{
+    stroke-dasharray: 0px;
+    stroke: rgba(0, 0, 0, 0.1);
+}
+
+:host /deep/ .ct-label{
+    font-size: 0.9rem;
+}
+
+//Line Chart 1 CSS Starts
+
+:host /deep/ .lineChart1 .ct-line {
+    fill: none;
+    stroke-width: 3px;
+}
+
+:host /deep/ .lineChart1 .ct-point {
+    stroke-width: 0px;
+}
+
+:host /deep/ .lineChart1Shadow {
+    -webkit-filter: drop-shadow( 0px 20px 6px rgba(0,0,0,0.3) );
+            filter: drop-shadow( 0px 20px 6px rgba(0,0,0,0.3) ); /* Same syntax as box-shadow, except 
+                                                       for the spread property */
+}
+//Line Chart 1 CSS Ends

@@ -1,0 +1,56 @@
+<div class="chat-application" style="height: 555px !important;">
+  <section class="chat-app-window" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+    <div class="badge badge-dark mb-1" style="font-size: xx-small">Konuşma Geçmişi {{chatMessages.length}}</div>
+    <div class="chats">
+      <div class="chats">
+        <div *ngFor="let message of service.selectedMessages" [ngClass]="getCustomMessageClass(message.from)">
+          <p class="time" *ngIf="isChangeDate(message.sendDate)" style="margin: 5px !important;">{{getMessageDate()}}</p>
+          <div class="chat-avatar">
+            <a class="avatar" data-toggle="tooltip" data-placement="[chat.avatar]" title="" data-original-title="">
+              <img src="../../../assets/img/kassaa.png" class="width-50" alt="avatar" />
+            </a>
+          </div>
+          <div class="chat-body">
+            <div class="chat-content" style="padding-bottom: 0px !important; padding-top: 0px;">
+              <p style="font-size: xx-small; padding: 0px !important; margin: 0px !important;">
+                {{getMessageFromName(message.from)}}
+              </p>
+              <p>{{ message.body }}</p>
+              <p style="font-size: xx-small; padding: 0px !important; margin: 0px !important;">
+                {{getMessageTime(message.sendDate)}}
+              </p>
+            </div>
+          </div>
+        </div>
+<!--
+        <div class="chat" *ngIf="messages.length > 0">
+          <div class="chat-avatar">
+            <a class="avatar" data-toggle="tooltip" data-placement="right" title="" data-original-title="">
+              <img src="assets/img/kassaa.png" class="width-50" alt="avatar" />
+            </a>
+          </div>
+          <div class="chat-body">
+            <div class="chat-content" *ngFor="let message of messages">
+              <p>{{ message }}</p>
+            </div>
+          </div>
+        </div>
+-->
+      </div>
+    </div>
+  </section>
+  <section class="chat-app-form bg-blue-grey bg-lighten-5">
+    <form class="chat-app-input row">
+      <fieldset class="form-group position-relative has-icon-left col-lg-9 col-9 m-0">
+        <input type="text" class="form-control" id="iconLeft4" placeholder="Mesaj Giriniz..." (keydown.enter)="onAddMessage();$event.preventDefault()"
+          #messageInput>
+      </fieldset>
+      <fieldset style="float:right" class="form-group position-relative has-icon-left col-lg-3 col-3 m-0">
+        <button id="send" type="button" style="border-radius: 100%" class="btn text-center btn-raised gradient-blackberry btn-primary" (click)="onAddMessage()">
+          <i class="fa fa-paper-plane-o hidden-lg-up"></i></button>
+      </fieldset>
+    </form>
+    <hr (click)="reset()" id="rst" style="color: transparent; background-color: transparent; border-color: transparent; margin-top: 5px;" />
+  </section>
+</div>
+

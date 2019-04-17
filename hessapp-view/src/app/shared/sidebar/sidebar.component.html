@@ -1,0 +1,144 @@
+<!-- Sidebar Header starts -->
+<div class="sidebar-header">
+    <div class="logo clearfix">
+        <a class="logo-text float-left">
+            <div class="logo-img">
+                <img src="assets/img/logo.png" />
+            </div>
+            <span class="text align-middle">HESSAPP</span>
+        </a>
+        <a class="nav-close d-block d-md-block d-lg-none d-xl-none" id="sidebarClose" href="javascript:;">
+            <i class="ft-x"></i>
+        </a>
+    </div>
+</div>
+<!-- Sidebar Header Ends -->
+
+<!-- Sidebar Content starts -->
+<div class="sidebar-content">
+    <div class="nav-container">
+
+      <ul class="navigation">
+        <li>
+          <a (click)="goToDashboard()">
+            <i class="fa fa-home"></i>
+            <span style="font-size:18px;" class="menu-title">
+              <span *ngIf="nickname">{{printNick()}}</span>
+              <span *ngIf="!nickname">Güvenli Değil !</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="container-fluid" style="margin-top: 5px; margin-bottom: 5px;">
+        <div class="row" style="font-size:14px; font-weight: bold">
+          <div class="col logout" (click)="goToProfile()" style="cursor: pointer;">
+            <img *ngIf="!photoUrl" src="../../../assets/img/user.png" width="25" height="25">
+            <img *ngIf="photoUrl" [src]="photoUrl" width="25" height="25">
+            Profil
+          </div>
+          <div class="col logout" (click)="logOut()">
+            <i class="fa fa-sign-out"></i>
+            Çıkış
+          </div>
+        </div>
+      </div>
+
+            <!--<button id="reset" (click)="rst()" style="margin: 0px!important; padding: 0px !important;"></button>-->
+            <div style="padding: 10px;" class="chat-fixed-search">
+                <form>
+                  <div class="position-relative has-icon-left">
+                    <input class="form-control" id="timesheetinput1" name="employeename" type="text">
+                    <div class="form-control-position">
+                      <i class="ft-user"></i>
+                    </div>
+                    <a (click)="goToGroupCreate()" style="margin-top: 10px;"  class="d-flex ml-3 btn btn-raised btn-round btn-block gradient-blackberry py-2 width-150 justify-content-center white">Grup Oluştur</a>
+                  </div>
+                </form>
+              </div>
+      {{nickname}}
+            <div id="users-list" class="list-group position-relative">
+                    <div class="users-list-padding">
+                      <a *ngFor="let group of groups" (click)="routeGroup(group.groupID)" [ngClass]="getCustomClass(group.groupID)" class="list-group-item" >
+                        <span class="media">
+                          <span class="avatar avatar-md avatar-online">
+                            <i></i>
+                          </span>
+                          <div class="media-body">
+                            <h6 class="list-group-item-heading">{{group.name}}
+                              <span *ngIf="group.unaspiringMessageCount != 0" class="primary">
+                                <span class="badge badge-pill badge-primary">
+                                  {{group.unaspiringMessageCount}}
+                                </span>
+                              </span>
+                              <span *ngIf="group.messages" class="font-small-3 float-right primary">{{getEndMessageDate(group.messages)}}</span>
+                            </h6>
+                            <p *ngIf="group.messages" class="list-group-item-text text-muted">
+                               {{getEndMessage(group.messages, group.groupID)}}
+                              <span class="float-right primary">
+                                <i class="ft-check primary font-small-2"></i>
+                              </span>
+                            </p>
+                          </div>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+        <ul class="navigation">
+
+            <!-- First level menu -->
+             <li *ngFor="let menuItem of menuItems" [ngClass]="[menuItem.class]" [routerLinkActive]="menuItem.submenu.length != 0 ? '' : 'active'"
+                [routerLinkActiveOptions]="{exact: true}">
+                <a [routerLink]="menuItem.class === '' ? [menuItem.path] : null" *ngIf="!menuItem.isExternalLink; else externalLinkBlock">
+                    <i [ngClass]="[menuItem.icon]"></i>
+                    <span class="menu-title">{{menuItem.title}}</span>
+                    <span *ngIf="menuItem.badge != '' " [ngClass]="[menuItem.badgeClass]">{{menuItem.badge}}</span>
+                </a>
+                <ng-template #externalLinkBlock>
+                    <a [href]="[menuItem.path]" target="_blank">
+                        <i [ngClass]="[menuItem.icon]"></i>
+                        <span class="menu-title">{{menuItem.title}}</span>
+                        <span *ngIf="menuItem.badge != '' " [ngClass]="[menuItem.badgeClass]">{{menuItem.badge}}</span>
+                    </a>
+                </ng-template>
+                <!-- Second level menu -->
+                <ul class="menu-content" *ngIf="menuItem.submenu.length > 0">
+                    <li *ngFor="let menuSubItem of menuItem.submenu" [routerLinkActive]="menuSubItem.submenu.length > 0 ? '' : 'active'" [ngClass]="[menuSubItem.class]">
+                        <a [routerLink]="menuSubItem.submenu.length > 0 ? null : [menuSubItem.path]" *ngIf="!menuSubItem.isExternalLink; else externalSubLinkBlock">
+                            <i [ngClass]="[menuSubItem.icon]"></i>
+                            <span class="menu-title">{{menuSubItem.title}}</span>
+                            <span *ngIf="menuSubItem.badge != '' " [ngClass]="[menuSubItem.badgeClass]">{{menuSubItem.badge}}</span>
+                        </a>
+                        <ng-template #externalSubLinkBlock>
+                            <a [href]="[menuSubItem.path]">
+                                <i [ngClass]="[menuSubItem.icon]"></i>
+                                <span class="menu-title">{{menuSubItem.title}}</span>
+                                <span *ngIf="menuSubItem.badge != '' " [ngClass]="[menuSubItem.badgeClass]">{{menuSubItem.badge}}</span>
+                            </a>
+                        </ng-template>
+                        <!-- Third level menu -->
+                        <ul class="menu-content" *ngIf="menuSubItem.submenu.length > 0">
+                            <li *ngFor="let menuSubsubItem of menuSubItem.submenu" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                                [ngClass]="[menuSubsubItem.class]">
+                                <a [routerLink]="[menuSubsubItem.path]" *ngIf="!menuSubsubItem.isExternalLink; else externalSubSubLinkBlock">
+                                    <i [ngClass]="[menuSubsubItem.icon]"></i>
+                                    <span class="menu-title">{{menuSubsubItem.title}}</span>
+                                    <span *ngIf="menuSubsubItem.badge != '' " [ngClass]="[menuSubsubItem.badgeClass]">{{menuSubsubItem.badge}}</span>
+                                </a>
+                                <ng-template #externalSubSubLinkBlock>
+                                    <a [href]="[menuSubsubItem.path]">
+                                        <i [ngClass]="[menuSubsubItem.icon]"></i>
+                                        <span class="menu-title">{{menuSubsubItem.title}}</span>
+                                        <span *ngIf="menuSubsubItem.badge != '' " [ngClass]="[menuSubsubItem.badgeClass]">{{menuSubsubItem.badge}}</span>
+                                    </a>
+                                </ng-template>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+      <hr (click)="reset()" id="reset" style="color: transparent; background-color: transparent; border-color: transparent; margin-top: 5px;" />
+    </div>
+</div>
+<!-- Sidebar Content Ends -->

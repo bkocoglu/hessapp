@@ -1,0 +1,19 @@
+local default zone
+    eureka:
+      client:
+        fetch-registry: true
+        register-with-eureka: true
+        service-url:
+          defaultZone: http://localhost:8360/eureka/
+      instance:
+        hostname: localhost
+
+heroku default zone
+   eureka:
+     client:
+       fetch-registry: true
+       register-with-eureka: true
+       service-url:
+         defaultZone: https://hessapp-api-gateway.herokuapp.com/eureka/
+     instance:
+       hostname: login-service.herokuapp.com

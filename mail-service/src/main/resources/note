@@ -1,0 +1,5 @@
+local default zone
+    defaultZone: http://localhost:8360/eureka/
+
+heroku default zone
+    defaultZone: https://hessapp-api-gateway.herokuapp.com//eureka/

@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: kafka-service
+  main:
+    allow-bean-definition-overriding: true
+  kafka:
+    consumer:
+      group-id: kafka-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    bootstrap-servers: localhost:9092
+
+
+server:
+  port: 8365
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8360/eureka/
+  instance:
+    hostname: localhost
+
+
+feign.client.config.default.connectTimeout: 160000000
+feign.client.config.default.readTimeout:
+
+

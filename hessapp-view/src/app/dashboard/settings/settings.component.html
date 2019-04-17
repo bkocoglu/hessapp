@@ -1,0 +1,33 @@
+<div class="row" matchHeight ="card">
+    <div class="col-xl-3 col-lg-12"></div>
+    <div class="col-xl-6 col-lg-12">
+      <div class="card text-center" style="margin: 0px !important;">
+          <div class="card-header">
+              <h4 style="font-weight: 700;" class="card-title mb-0">{{group.name}}</h4>
+          </div>
+          <div class="card-body">
+              <div class="card-block">
+                  <p style="text-transform: none; font-size: 18px;" class="card-title mb-0">{{group.description}}</p>
+              </div>
+              <div class="card-block">
+                  <h4 class="card-title mb-0">ÜYELER</h4>
+              </div>
+          </div>
+          <div class="card-body members">
+              <div class="card-block ">
+                  <div *ngFor="let part of participants" class="media mb-3">
+                      <div class="media-body">
+                          <h4 class="font-medium-1 mt-2 mb-0">{{part.name}}</h4>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        <a *ngIf="group.moderator === loginUserNick" style="background-color: #d32f2f; color: #fff;" (click)="deleteGroup()" class="btn btn-raised btn-block round">
+          <span *ngIf='!loading'>GRUBU DAĞIT</span>
+          <img *ngIf='loading' src="../../../assets/loading.gif" width="20" height="20">
+        </a>
+      </div>
+
+  </div>
+  <div class="col-xl-3 col-lg-12"></div>
+  </div>

@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: info-service
+
+server:
+  port: 8363
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8360/eureka/
+  instance:
+    hostname: localhost

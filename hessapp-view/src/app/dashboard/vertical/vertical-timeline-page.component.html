@@ -1,0 +1,60 @@
+<!--Vertical Timeline Starts-->
+<section id="timeline" class="timeline-center timeline-wrapper">
+  <h3 class="page-title text-center">Hareketler</h3>
+
+  <ul class="timeline">
+
+    <li class="timeline-line"></li>
+    <!-- /.timeline-line -->
+
+    <li *ngFor="let spend of spends" class="timeline-item mt-5 text-center" style="padding-bottom: 30px !important;">
+      <div class="timeline-card card border-grey border-lighten-2">
+        <div class="card-header">
+          <h4 class="mb-0 card-title">{{spend.totalAmount}}TL</h4>
+          <p class="card-text"><small>{{spend.from}}</small></p>
+          <p class="card-text"><small>{{spend.date}}</small></p>
+        </div>
+        <div class="card-body">
+          <div class="card-body">
+            <div class="card-block">
+              <p class="card-text">{{spend.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+
+</section>
+<section class="text-center">
+  <a class="btn btn-raised round btn-primary" id="spends-function" (click)="openModal(customContent)"><i class="fa fa-plus"></i></a>
+</section>
+<hr (click)="reset()" id="rst" style="color: transparent; background-color: transparent; border-color: transparent; margin-top: 5px;" />
+
+                <ng-template #customContent let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                        <h4 class="modal-title">HARCAMA EKLE</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-block text-center">
+                                <input type="number" [(ngModel)]="totalAmount" class="form-control" placeholder="Harcama Miktarı" aria-label="Harcama Miktarı" aria-describedby="basic-addon1" required="">
+
+                            </div>
+                            <div class="card-block text-center">
+                                <textarea style="max-height:100px; min-height:100px;" [(ngModel)]="spendDesc" class="form-control ng-pristine" formcontrolname="textArea" id="textArea" placeholder="Harcama Açıklaması" rows="3"></textarea>
+                            </div>
+                            <div class="card-block">
+                              <a *ngIf='!loading' (click)="addSpend(customContent)"  class="btn btn-raised gradient-blackberry btn-primary btn-block round">HARCAMA OLUŞTUR</a>
+                              <a *ngIf='loading' class="btn btn-raised gradient-blackberry btn-primary btn-block round">
+                                <img src="../../../assets/loading.gif" width="20" height="20">
+                              </a>
+                              <a id="closeModalButton" (click)="d('Cross click')"style="background-color: #d32f2f; color: #fff;" class="btn btn-raised btn-block round">İPTAL ET</a>
+                              </div>
+                        </div>
+                    </div>
+                </ng-template>

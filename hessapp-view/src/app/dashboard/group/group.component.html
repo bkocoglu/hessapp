@@ -1,0 +1,7 @@
+<nav class="nav nav-pills nav-fill">
+    <a class="nav-item nav-link" [ngStyle]="getCustomStyle('chat')" id="chat" (click)="route('chat')" >Sohbet</a>
+    <a class="nav-item nav-link" [ngStyle]="getCustomStyle('status')" id="status" (click)="route('status')">Durum</a>
+    <a class="nav-item nav-link" [ngStyle]="getCustomStyle('timeline')" id="timeline" (click)="route('timeline')">Hareketler</a>
+  <a class="nav-item nav-link" [ngStyle]="getCustomStyle('settings')"  id="settings" (click)="route('settings')">Ayarlar</a>
+</nav>
+  <router-outlet></router-outlet>

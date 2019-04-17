@@ -1,0 +1,98 @@
+<!--Login Page Starts-->
+<section id="login">
+    <div class="container-fluid">
+        <div class="row full-height-vh">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <div class="card card-inverse gradient-indigo-purple text-center width-600">
+                    <div class="card-body">
+                        <div class="card-block">
+                            <h2>Kayıt Ol</h2>
+                            <form novalidate="" (ngSubmit)="onSubmit()" #f="ngForm">
+                                <div class="form-group">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="propertyLabel">Ad</p>
+                                        <input type="text" class="form-control" name="name" placeholder="Ad" ngModel required email>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p class="propertyLabel">Soyad</p>
+                                      <input type="text" class="form-control" name="surname" placeholder="Soyad" ngModel required email>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <p class="propertyLabel">Email</p>
+                                      <input type="email" class="form-control" name="email" placeholder="Email" ngModel required email>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p class="propertyLabel">Doğum Yılı</p>
+                                      <select class="form-control" name="birthyear" ngModel required>
+                                        <option *ngFor="let year of birthyears" [selected]="year">{{year}}</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <p class="propertyLabel">Şehir</p>
+                                      <select class="form-control" name="city" ngModel required>
+                                        <option *ngFor="let city of cities">{{city.name}}</option>
+                                      </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p class="propertyLabel">Cinsiyet</p>
+                                      <select class="form-control" name="gender" ngModel required>
+                                        <option>Bay</option>
+                                        <option>Bayan</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <p class="propertyLabel">Şifre</p>
+                                      <input type="password" class="form-control" name="password" placeholder="Şifreniz" ngModel required email>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p class="propertyLabel">Şifre Tekrar</p>
+                                      <input type="password" class="form-control" name="repeatPass"  placeholder="Şifrenizi Tekrar Giriniz" ngModel required>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row" style="margin-bottom: 10px;">
+                                  <div class="col"></div>
+                                  <div class="col">
+                                    <re-captcha (resolved)="resolved($event)" siteKey="6LcGbIUUAAAAAFy3f39cXA-rcvk-pdDxu2_vSLUm"></re-captcha>
+                                  </div>
+                                  <div class="col"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <button type="button" routerLink="/pages/login" class="btn btn-google btn-block btn-raised">GERİ DÖN</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <button type="submit" class="btn btn-secondary btn-block btn-raised">
+                                            <img *ngIf='loading' src="../../../../assets/loading.gif" height="23" width="23">
+                                            <span *ngIf='!loading'>KAYIT OL</span>
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Login Page Ends-->

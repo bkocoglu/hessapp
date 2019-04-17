@@ -1,0 +1,62 @@
+<div class="row" matchHeight ="card">
+
+  <div class="col-xl-5 col-lg-12">
+      <div class="card">
+          <div class="card-header">
+              <h4 class="card-title mb-0">GENEL DURUM</h4>
+          </div>
+          <div class="card-body">
+              <div class="card-block text-center">
+                <img style="width:45%;" src="../../../assets/img/kassaa.png">
+              </div>
+              <div class="card-block text-center">
+                  <div  class="media mb-3">
+                      <div class="media-body">
+                          <h4 class="font-medium-1 mt-2 mb-0">Toplam Alacak</h4>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="font-medium-2 mt-2 mb-0">{{totalCredit}} TL</h4>
+                    </div>
+                  </div>
+                  <div  class="media mb-3">
+                      <div class="media-body">
+                          <h4 class="font-medium-1 mt-2 mb-0">Toplam Verecek</h4>
+                      </div>
+                      <div  class="media-body">
+                        <h4 class="font-medium-2 mt-2 mb-0">{{totalDebt}} TL</h4>
+                    </div>
+                  </div>
+                  <div  class="media mb-3 text-center">
+                      <div class="media-body">
+                          <h4 class="font-medium-1 mt-2 mb-0">Genel Durum</h4>
+                      </div>
+                      <div class="media-body">
+                          <h4 class="font-medium-1 mt-2 mb-0">{{totalStatus}} TL</h4>
+                      </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-xl-7 col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title mb-0">Borçlar</h4>
+        </div>
+        <div class="card-body">
+            <div class="card-block">
+                <div class="media mb-3" *ngFor="let debt of debtList">
+                    <div class="media-body">
+                        <h4 class="font-medium-1 mt-2 mb-0">{{debt.From}}</h4>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="font-medium-2 mt-2 mb-0">{{debt.Description}}</h4>
+                      <h4 class="font-medium-2 mt-2 mb-0">{{debt.Amount}} TL</h4>
+                  </div>
+                  <a (click)="payDebt(debt.ActivityId)" class="btn btn-raised gradient-blackberry round btn-primary" title="Hebele Hübele" ><i class="fa fa-check"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

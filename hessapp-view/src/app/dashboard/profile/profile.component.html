@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-4">
+    <div class="hvrbox" (click)="goToUpload()">
+      <img *ngIf="!data.photoUrl" src="../../../assets/img/user.png" alt="Profile" class="hvrbox-layer_bottom profilePhoto">
+      <img *ngIf="data.photoUrl" [src]="photoUrl" alt="Profile" class="hvrbox-layer_bottom profilePhoto">
+      <div class="hvrbox-layer_top">
+        <div class="hvrbox-text">
+          <a class="changebtn">Değiştir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="custom-card">
+      <p class="custom-card-header">
+        <b><i>Kullanıcı Bilgileri</i></b>
+      </p>
+      <div class="custom-card-body">
+        <h5 class="card-title">{{data.nickname}}</h5>
+        <p class="card-text" style="font-size: x-small">Arkadaşlarınız bu nick ile sizi bulabilir, gruplara ekleyebilirler.</p>
+        <h5 class="card-title">{{data.name}} {{data.surname}}</h5>
+        <h5 class="card-title">{{data.mail}}</h5>
+        <h5 class="card-title">{{data.age}}</h5>
+        <h5 class="card-title">{{data.gender}}</h5>
+      </div>
+    </div>
+  </div>
+</div>

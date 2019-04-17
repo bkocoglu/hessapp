@@ -1,0 +1,55 @@
+localhost zuul
+
+zuul:
+  prefix: /api
+  routes:
+    login-service:
+      path: /login-service/**
+      url: http://localhost:8361
+    mail-service:
+      path: /mail-service/**
+      url: http://localhost:8362
+  host:
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
+
+local zuul
+zuul:
+  prefix: /api
+  routes:
+    login-service:
+      path: /login-service/**
+      url: http://localhost:8361
+    mail-service:
+      path: /mail-service/**
+      url: http://localhost:8362
+    info-service:
+      path: /info-service/**
+      url: http://localhost:8363
+    chat-service:
+      path: /chat-service/**
+      url: http://localhost:8364
+  host:
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
+
+
+heroku zuul
+zuul:
+  prefix: /api
+  routes:
+    login-service:
+      path: /login-service/**
+      url: https://hessapp-api-login.herokuapp.com
+    mail-service:
+      path: /mail-service/**
+      url: https://hessapp-api-mail.herokuapp.com
+    info-service:
+      path: /info-service/**
+      url: https://hessapp-api-info.herokuapp.com
+    chat-service:
+      path: /chat-service/**
+      url: https://hessapp-api-chat.herokuapp.com
+  host:
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000

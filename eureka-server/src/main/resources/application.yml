@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    server:
+          waitTineInMsWhenSyncEmpty: 0
+
+server:
+  port: 8360
+
+zuul:
+  prefix: /api
+  routes:
+    login-service:
+      path: /login-service/**
+      url: http://localhost:8361
+    mail-service:
+      path: /mail-service/**
+      url: http://localhost:8362
+    info-service:
+      path: /info-service/**
+      url: http://localhost:8363
+    chat-service:
+      path: /chat-service/**
+      url: http://localhost:8364
+    kafka-service:
+      path: /kafka-service/**
+      url: http://localhost:8365
+    group-service:
+      path: /group-service/**
+      url: http://localhost:8366
+  host:
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000

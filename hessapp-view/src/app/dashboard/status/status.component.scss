@@ -1,0 +1,33 @@
+.font-medium-1{
+    font-weight: 700;
+    font-size: 15px;
+}
+.media{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e3e3e3;}
+
+.col-xl-7 .card-body{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 450px;
+}
+
+.col-xl-7 .card-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.col-xl-7 .card-body::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.col-xl-7 .card-body::-webkit-scrollbar-thumb {
+    background-color: #573790;
+  border-radius: 8px;
+  transition: background-color 0.5s;
+}
+
+.col-xl-7 .card-body::-webkit-scrollbar-thumb:hover{
+    background-color: #836186;
+  }
+
+
