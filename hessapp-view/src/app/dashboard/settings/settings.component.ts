@@ -42,7 +42,7 @@ export class SettingsComponent implements OnInit, AfterContentInit {
       }
     });
 
-    //console.log(LoginUserInfoService.groups);
+    // console.log(LoginUserInfoService.groups);
   }
 
   ngAfterContentInit(): void {
@@ -52,12 +52,12 @@ export class SettingsComponent implements OnInit, AfterContentInit {
   deleteGroup() {
     this.loading = true;
     const deleteGroupReq: DeleteGroupReqDTO = new DeleteGroupReqDTO();
-    deleteGroupReq.nickname = LoginUserInfoService.nickname;
+    deleteGroupReq.participantId = LoginUserInfoService.nickname;
     deleteGroupReq.groupId = this.groupId;
 
     this.apiClient.deleteGroupClient(deleteGroupReq).subscribe(
       response => {
-        if (response.status == 200) {
+        if (response.status === 200) {
           this.loading = false;
         }
       },

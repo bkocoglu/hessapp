@@ -37,7 +37,7 @@ export class StatusComponent implements OnInit {
   apiCall() {
    const groupStatusReq: DeleteGroupReqDTO = new DeleteGroupReqDTO();
     groupStatusReq.groupId = this.groupId;
-    groupStatusReq.nickname = LoginUserInfoService.nickname;
+    groupStatusReq.participantId = LoginUserInfoService.nickname;
 
     this.apiClient.getGroupStatusClient(groupStatusReq).subscribe(
       response => {

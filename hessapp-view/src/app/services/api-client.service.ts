@@ -124,7 +124,7 @@ export class ApiClientService {
   }
 
   deleteGroupClient(deleteGroupReq: DeleteGroupReqDTO) : Observable<any> {
-    var subUrl = '/info-service/group/delete';
+    var subUrl = '/group-service/group/delete';
 
     var url = this.baseUrl + subUrl;
 
@@ -154,7 +154,7 @@ export class ApiClientService {
   }
 
   getGroupStatusClient(deleteGroupReq: DeleteGroupReqDTO)  : Observable<any> {
-    var subUrl = '/info-service/spend/status/group';
+    var subUrl = '/group-service/spend/group-status';
 
     var url = this.baseUrl + subUrl;
 

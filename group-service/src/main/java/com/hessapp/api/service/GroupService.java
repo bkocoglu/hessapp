@@ -70,10 +70,12 @@ public class GroupService {
         if (group.getModerator().equals(participantId)){
             //delete group
             List<Spend> spends = spendRepository.findByGroupId(group.getId());
-            for(Spend spend: spends){
-                activityRepository.deleteBySpendId(spend.getId());
+            if (!spends.isEmpty()){
+                for(Spend spend: spends){
+                    activityRepository.deleteBySpendId(spend.getId());
+                }
+                spendRepository.deleteAll(spends);
             }
-            spendRepository.deleteByGroupId(group.getId());
             groupRepository.deleteById(group.getId());
         }else {
             //exception

@@ -1,5 +1,5 @@
 export class Debt {
-  ActivityId: number;
+  ActivityId: string ;
   From: string;
   Amount: number;
   Description: string;

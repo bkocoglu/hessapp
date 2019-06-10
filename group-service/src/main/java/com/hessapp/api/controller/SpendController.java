@@ -1,6 +1,8 @@
 package com.hessapp.api.controller;
 
 import com.hessapp.api.dto.request.CreateSpendRequest;
+import com.hessapp.api.dto.request.DeleteGroupRequest;
+import com.hessapp.api.dto.response.GroupStatusRepsonse;
 import com.hessapp.api.model.Spend;
 import com.hessapp.api.service.SpendService;
 import org.slf4j.Logger;
@@ -32,5 +34,12 @@ public class SpendController {
         spendService.createActivities(spend);
 
         return ResponseEntity.ok().body(spend);
+    }
+
+    @PostMapping("/group-status")
+    public ResponseEntity getGroupStatus(@Valid @RequestBody DeleteGroupRequest deleteGroupRequest) throws IllegalAccessException {
+        GroupStatusRepsonse groupStatusRepsonse = spendService.getGroupStatus(deleteGroupRequest);
+
+        return ResponseEntity.ok(groupStatusRepsonse);
     }
 }

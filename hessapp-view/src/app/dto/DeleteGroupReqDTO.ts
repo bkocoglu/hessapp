@@ -1,4 +1,4 @@
 export class DeleteGroupReqDTO {
-  nickname: string;
+  participantId: string;
   groupId: string;
 }

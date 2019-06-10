@@ -61,7 +61,7 @@ public class GroupController {
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("")
+    @PostMapping("/delete")
     public ResponseEntity deleteGroup(@Valid @RequestBody DeleteGroupRequest deleteGroupRequest){
         groupService.deleteGroup(deleteGroupRequest.getGroupId(), deleteGroupRequest.getParticipantId());
         //test edilmeli !
